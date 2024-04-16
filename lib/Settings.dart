@@ -1,0 +1,274 @@
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:intime_news/EditName.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
+// import 'EditEmail.dart';
+// import 'EditPassword.dart';
+// import 'Login.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
+//
+// import 'News.dart';
+//
+//
+// class Settings extends StatefulWidget {
+//   @override
+//   _SettingsState createState() => _SettingsState();
+// }
+//
+// class _SettingsState extends State<Settings> {
+//
+//
+//   //Change Password Controllers
+//   bool _passwordVisible = false;
+//   bool _passwordVisible1 = false;
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     _passwordVisible = false;
+//     //bool _passwordVisible1 = false;
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       resizeToAvoidBottomInset: false,
+//       floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
+//       body: Padding(
+//         padding: const EdgeInsets.symmetric(horizontal: 10.0),
+//         child: ListView(children: [
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+//
+//           //Logo
+//           Center(
+//             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+//               Container(
+//                 height: 25.14,
+//                 width: 139,
+//                 child: SvgPicture.asset("assets/images/Logo.svg"),
+//               )
+//             ]),
+//           ),
+//
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           //Line
+//           const Divider(
+//             height: 10,
+//             thickness: 1,
+//             indent: 0,
+//             endIndent: 0,
+//             color: Color.fromRGBO(143, 147, 154, 1),
+//           ),
+//
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+//
+//           //Manage Profile
+//           Row(
+//             children: [
+//               Icon(
+//                 Icons.account_circle_outlined,
+//                 size: 32,
+//                 color: Color.fromRGBO(30, 63, 132, 1),
+//               ),
+//               SizedBox(
+//                 width: 8,
+//               ),
+//               Text(
+//                 "Manage Profile",
+//                 style: GoogleFonts.raleway(
+//                   color: const Color.fromRGBO(39, 39, 40, 1),
+//                   fontSize: 22,
+//                   fontWeight: FontWeight.w600,
+//                   fontStyle: FontStyle.normal,
+//                 ),
+//               ),
+//             ],
+//           ),
+//
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+//
+//           //Line
+//           const Divider(
+//             height: 10,
+//             thickness: 1,
+//             indent: 0,
+//             endIndent: 0,
+//             color: Color.fromRGBO(143, 147, 154, 1),
+//           ),
+//
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           //Profile Picture
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Container(
+//                   width: 180,
+//                   height: 180,
+//                   decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(200),
+//                       image: DecorationImage(
+//                         image: AssetImage(
+//                           'assets/images/Charcter.jpg',
+//                         ),
+//                         colorFilter: const ColorFilter.mode(
+//                           Color.fromRGBO(39, 39, 40, 0.1),
+//                           BlendMode.darken,
+//                         ),
+//                         fit: BoxFit.cover,
+//                       ))),
+//             ],
+//           ),
+//
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           //Manage Account Options
+//           ChangeName(context, "Change Username"),
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           ChangeEmail(context, "Change Email"),
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           ChangePass(context, "Change Password"),
+//           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+//
+//           SignOut(context, "Sign Out"),
+//         ]),
+//       ),
+//
+//     );
+//   }
+//
+//   //Manage Profile
+//   //Change Name
+//   GestureDetector ChangeName(BuildContext context, String title) {
+//     return GestureDetector(
+//       onTap: () {
+//         Navigator.push(context,
+//             MaterialPageRoute(builder: (BuildContext context) {
+//               return EditName();
+//             }));
+//       },
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: GoogleFonts.raleway(
+//                 color: Color.fromRGBO(143, 147, 154, 1),
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.w500,
+//                 fontStyle: FontStyle.normal),
+//           ),
+//           Icon(
+//             Icons.arrow_right,
+//             color: Color.fromRGBO(143, 147, 154, 1),
+//             size: 32,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   //Change Email
+//   GestureDetector ChangeEmail(BuildContext context, String title) {
+//     return GestureDetector(
+//       onTap: () {
+//         Navigator.push(context,
+//             MaterialPageRoute(builder: (BuildContext context) {
+//               return EditEmail();
+//             }));
+//       },
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: GoogleFonts.raleway(
+//                 color: Color.fromRGBO(143, 147, 154, 1),
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.w500,
+//                 fontStyle: FontStyle.normal),
+//           ),
+//           Icon(
+//             Icons.arrow_right,
+//             color: Color.fromRGBO(143, 147, 154, 1),
+//             size: 32,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   //Change Password
+//   GestureDetector ChangePass(BuildContext context, String title) {
+//     return GestureDetector(
+//       onTap: () {
+//         Navigator.push(context,
+//             MaterialPageRoute(builder: (BuildContext context) {
+//               return EditPassword();
+//             }));
+//       },
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: GoogleFonts.raleway(
+//                 color: Color.fromRGBO(143, 147, 154, 1),
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.w500,
+//                 fontStyle: FontStyle.normal),
+//           ),
+//           Icon(
+//             Icons.arrow_right,
+//             color: Color.fromRGBO(143, 147, 154, 1),
+//             size: 32,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   //Sign Out
+//   GestureDetector SignOut(BuildContext context, String title) {
+//     return GestureDetector(
+//       onTap: () async {
+//         SharedPreferences prefs = await SharedPreferences.getInstance();
+//         prefs.remove('email');
+//         prefs.remove('password');
+//         prefs.remove('rememberMe');
+//         FirebaseAuth.instance.signOut().then((value) {
+//           Navigator.push(
+//               context, MaterialPageRoute(builder: (context) => new LogIn()));
+//           Fluttertoast.showToast(
+//               msg: "Signed Out Successfully",
+//               backgroundColor: Color.fromRGBO(244, 244, 244, 1),
+//               textColor: Color.fromRGBO(39, 39, 40, 1));
+//         });
+//       },
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: GoogleFonts.raleway(
+//                 color: Color.fromRGBO(30, 63, 132, 1),
+//                 fontSize: 18,
+//                 fontWeight: FontWeight.w600,
+//                 fontStyle: FontStyle.normal),
+//           ),
+//           Icon(
+//             Icons.logout,
+//             color: Color.fromRGBO(30, 63, 132, 1),
+//             size: 26,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
