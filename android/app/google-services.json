@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "175669745187",
+    "project_id": "gp-data-f854f",
+    "storage_bucket": "gp-data-f854f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175669745187:android:66a90bb159860f16710396",
+        "android_client_info": {
+          "package_name": "com.example.intime_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175669745187-l8ordc106cj5m1c7rcdp149ij1d3rv1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKJrCrM5Lp5BHeuUvTsNaREpjNymILlQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175669745187-l8ordc106cj5m1c7rcdp149ij1d3rv1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
